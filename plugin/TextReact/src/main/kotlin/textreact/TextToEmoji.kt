@@ -86,7 +86,7 @@ class TextToEmoji {
         )
 
         fun generateEmojiArray(string: String): Pair<List<String>, Boolean> {
-            val unusedReactions = reactions
+            val unusedReactions = ReactionsType(single = reactions.single.mapValues { ArrayList(it.value) }.toMutableMap(), multiple = reactions.multiple.mapValues { ArrayList(it.value) }.toMutableMap())
             var msg = string.lowercase()
             val newReactions = ArrayList<String>()
 
